@@ -52,6 +52,27 @@ dbport=
 node server.js 
 ````
 
+or 
+
+```javascript
+npm start
+````
+
+## Application Structure
+
+- `server.js`     - The entry point to our application. This file defines our express server.
+- `connection/`   - This folder contains configuration for database and bitcoin core RPC.
+- `routes/`       - This folder contains the route definitions for our API.
+- `db/`           - This folder contains the PostgreSQL queries.
+
+
+## People
+
+The original author of the project is [Himanshu Bansal](https://github.com/Skillnter)
+
+## License
+
+  [MIT](LICENSE)
 
 [node.js]: https://nodejs.org/
 [BitcoinCore]: https://bitcoin.org/en/bitcoin-core/
