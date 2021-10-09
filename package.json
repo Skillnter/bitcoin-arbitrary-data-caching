@@ -10,7 +10,9 @@
   "keywords": [
     "bitcoin-core",
     "express",
-    "postgresql"
+    "postgresql",
+    "pg",
+    "http-response-status-codes"
   ],
   "author": "Himanshu Bansal <skillhimanshubansal@gmail.com>",
   "license": "ISC",
