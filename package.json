@@ -1,0 +1,23 @@
+{
+  "name": "BITCOIN OP_RETURN CACHING",
+  "version": "1.0.0",
+  "description": "The purpose of this project is to store and index Bitcoin OP_RETURN data for all transactions after a certain block. This data will then be served on an HTTP endpoint as a JSON payload.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bitcoin-core",
+    "express",
+    "postgresql"
+  ],
+  "author": "Himanshu Bansal <skillhimanshubansal@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-response-status-code": "^1.0.5",
+    "pg": "^8.7.1"
+  }
+}
