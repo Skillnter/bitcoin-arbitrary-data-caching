@@ -12,6 +12,12 @@ const root = require('./routes/root');
 
 const PORT = process.env.PORT;
 
+query.createTableIfNotExist().then((data)=>{
+	query.createIndexForOPReturn().catch((err)=>{process.exit();});
+}).catch((error)=>{process.exit();});
+
+app.use('/',root);
+
 app.listen(PORT,()=>{
 	console.log(`server started on port ${PORT}`);
 })
