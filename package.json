@@ -15,7 +15,7 @@
     "http-response-status-codes"
   ],
   "author": "Himanshu Bansal <skillhimanshubansal@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bitcoin-core": "^3.0.0",
     "dotenv": "^10.0.0",
