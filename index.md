@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+# BITCOIN OP_RETURN CACHING 
 
-You can use the [editor on GitHub](https://github.com/Skillnter/bitcoin-op_return-caching/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The purpose of this project is to store and index Bitcoin OP_RETURN data for all transactions after a certain block. This data will then be served on an HTTP endpoint as a JSON payload.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Development Setup
 
-### Markdown
+### Prerequisites
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+- Install [Node.js] which includes [Node Package Manager][npm]
+- Install [BitcoinCore] which includes bitcoind
+- Install [PostgreSQL]
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+### Install Modules
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```console
+npm install 
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Environmental Variables
 
-### Jekyll Themes
+For reference, `.env.sample` is added to the project. Rename `.env.sample` to `.env`.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Skillnter/bitcoin-op_return-caching/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```shell
+# .env
+USER=
+PASS=
+PORT=
+dbuser=
+database=
+dbpassword=
+dbhost=
+dbport=
+````
 
-### Support or Contact
+| Variable    | Details                       
+| ----------- | -------------------------------
+| USER        | Bitcoind RPC username                       
+| PASS        | Bitcoind RPC password            
+| PORT        | Express port                    
+| dbuser      | PostgreSQL database username                             
+| database    | PostgreSQL database name                      
+| dbpassword  | PostgreSQL database password                       
+| dbhost      | PostgreSQL database host
+| dbport      | PostgreSQL database port                     
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+## Running Application 
+
+```javascript
+node server.js 
+````
+
+or 
+
+```javascript
+npm start
+````
+
+## Application Structure
+
+- `server.js`     - The entry point to our application. This file defines our express server.
+- `connection/`   - This folder contains configuration for database and bitcoin core RPC.
+- `routes/`       - This folder contains the route definitions for our API.
+- `db/`           - This folder contains the PostgreSQL queries.
+
+
+## People
+
+The original author of the project is [Himanshu Bansal](https://github.com/Skillnter)
+
+## License
+
+  [MIT](LICENSE)
+
+[node.js]: https://nodejs.org/
+[BitcoinCore]: https://bitcoin.org/en/bitcoin-core/
+[npm]: https://www.npmjs.com/get-npm
+[PostgreSQL]: https://www.postgresql.org/
