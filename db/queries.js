@@ -7,7 +7,7 @@ const pool = require('../connection/db').pool;
  *  @description Add Entry to the new_btc table.
  */
 const addEntry = (op,tx,block) => {
-	return pool.query('INSERT INTO btc (op_return,tx_hash,block_hash) VALUES ($1, $2, $3)', [op,tx,block]);
+	return pool.query('INSERT INTO btc (op_return,tx_hash,block_hash) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING', [op,tx,block]);
 }
 
 /** @function
@@ -34,7 +34,8 @@ const createTableIfNotExist = () =>{
 			op_return varchar(450) NOT NULL,
 			tx_hash varchar(450) NOT NULL,
 			block_hash varchar(450) NOT NULL,
-			PRIMARY KEY (id)
+			PRIMARY KEY (id),
+			UNIQUE(op_return, tx_hash, block_hash)
 		)`
 	);
 }
