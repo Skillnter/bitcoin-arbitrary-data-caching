@@ -5,6 +5,8 @@ var router = express.Router();
 
 const query = require('../db/queries');
 
+const redis = require('../connection/redis');
+
 /**
  * @api {get} /:op_return Request OP_RETURN Hex
  * @apiName GetTransactionAndBlockHash
@@ -17,10 +19,19 @@ const query = require('../db/queries');
  */
 router.get('/:op_return', async function (req, res) {
 	try{
+
+		const cacheKey = `op_return_${req.params['op_return']}`;
+		const cachedData = await redis.getData(cacheKey);
+
+		if (cachedData) {
+			return res.send({status:STATUS_CODES.OK,data:cachedData});
+		}
+
 		let data = await query.getOpReturnDetails(req.params['op_return'])
 		let response = "No data found.";
 		if(data.rows.length > 0){
 			response = data.rows;
+			await redis.saveWithTTL(cacheKey, response, process.env.REDIS_TTL);
 		}
 		res.send({status:STATUS_CODES.OK,data:response});
 	}catch(error){
