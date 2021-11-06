@@ -10,7 +10,7 @@ const query = require('./db/queries');
 
 const root = require('./routes/root');
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 let height = 0;
 
