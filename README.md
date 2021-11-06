@@ -1,6 +1,6 @@
-# BITCOIN OP_RETURN CACHING 
+# BITCOIN Arbitrary Data Caching
 
-The purpose of this project is to store and index Bitcoin OP_RETURN data for all transactions after a certain block. This data will then be served on an HTTP endpoint as a JSON payload.
+The purpose of this project is to store and index Bitcoin arbitrary data for all transactions that occur after a given block. This data will subsequently be served on an HTTP endpoint as a JSON payload.
 
 ## Development Setup
 
@@ -39,20 +39,20 @@ REDIS_PASSWORD=
 REDIS_TTL=
 ````
 
-| Variable       | Details                       
-| -------------- | -------------------------------
-| USER           | Bitcoind RPC username                       
-| PASS           | Bitcoind RPC password            
-| PORT           | Express port                    
-| dbuser         | PostgreSQL database username                             
-| database       | PostgreSQL database name                      
-| dbpassword     | PostgreSQL database password                       
-| dbhost         | PostgreSQL database host
-| dbport         | PostgreSQL database port                     
-| REDIS_HOST     | Redis Host     
-| REDIS_PORT     | Redis Port    
-| REDIS_PASSWORD | Redis Password
-| REDIS_TTL      | Redis TTL for cache    
+| Variable       | Details                        | Required
+| -------------- | -------------------------------| ---------
+| USER           | Bitcoind RPC username          |   YES       
+| PASS           | Bitcoind RPC password          |   YES
+| PORT           | Express port                   |   NO
+| dbuser         | PostgreSQL database username   |   YES                         
+| database       | PostgreSQL database name       |   YES              
+| dbpassword     | PostgreSQL database password   |   YES                   
+| dbhost         | PostgreSQL database host       |   YES
+| dbport         | PostgreSQL database port       |   YES             
+| REDIS_HOST     | Redis Host                     |   YES
+| REDIS_PORT     | Redis Port                     |   YES
+| REDIS_PASSWORD | Redis Password                 |   NO
+| REDIS_TTL      | Redis TTL for cache            |   NO
 
 
 ## Running Application 

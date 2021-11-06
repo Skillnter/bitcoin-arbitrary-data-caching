@@ -7,6 +7,8 @@ const query = require('../db/queries');
 
 const redis = require('../connection/redis');
 
+const TTL = process.env.REDIS_TTL || 600
+
 /**
  * @api {get} /:op_return Request OP_RETURN Hex
  * @apiName GetTransactionAndBlockHash
@@ -31,7 +33,7 @@ router.get('/:op_return', async function (req, res) {
 		let response = "No data found.";
 		if(data.rows.length > 0){
 			response = data.rows;
-			await redis.saveWithTTL(cacheKey, response, process.env.REDIS_TTL);
+			await redis.saveWithTTL(cacheKey, response, TTL);
 		}
 		res.send({status:STATUS_CODES.OK,data:response});
 	}catch(error){
