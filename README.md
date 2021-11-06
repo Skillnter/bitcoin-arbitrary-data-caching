@@ -80,7 +80,7 @@ npm start
 
 ## License
 
-- `BITCOIN OP_RETURN CACHING` project is open-sourced software licensed under the [MIT license](LICENSE) by [Himanshu Bansal].
+- `BITCOIN Arbitrary Data Caching` project is open-sourced software licensed under the [MIT license](LICENSE) by [Himanshu Bansal].
 
 [node.js]: https://nodejs.org/
 [BitcoinCore]: https://bitcoin.org/en/bitcoin-core/
